@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="About Me Style.css">
+<title>Masina Garonzik | Brand Strategy & SEO Specialist</title>
+</head>
+<body>
+
+<header id="homepage" class="section">
+    <div class="header-1-text">
+      <div class="logo-container">
+      <img src="Images/Masina's Logo 2.png" alt="A capital M on top and a capitol G on the bottom connected" class="logo">
+      </div>
+      <div class="header-container">
+      <h1> MASINA <br>
+        GARONZIK</h1>
+      </div>
+    </div>
+    <video autoplay loop muted plays-inline class="homepage-background">
+      <source src="Images/Film Background Footage.mp4" type="video/mp4">
+    </video>
+</header>
+
+<div id="about_me" class="section">
+    <div class="text-column">
+      <div class="headertext">
+          <h2>About Me</h2>
+      </div>
+      <div class="text">
+          <p>
+            Masina is a Senior Advertising student at Temple University with a focus on brand strategy and research and a minor in Screen Studies.
+            Originally from Los Angeles, California, she had early exposure to the film industry, 
+            growing up at the Dick Clark Productions Screening Room and being integrated into Jamaican culture at a young age.
+            She is very passionate about film for this reason, building an attuned sense to style and aesthetics.
+          </p>
+          <p>
+            Masina believes that the future of media lies in the gaming industry, breaking standards and creating breathtaking content.
+            She hopes to develop her work closely along digital trends and is always striving to understanding new technology.
+            She hopes to work in social media marketing and digital media, but not excluding her fascination in research for consumer insights and UX design.
+            Over time, deepening her knowledge in SEO content, she wishes to improve her skills in analytics to help build reports on media tactics.
+            But she is not afraid to tap into her creative side, either through the development of intersting strategy, creating short-form media in Premiere Pro, or even through web development.
+          <p>
+            Beyond her background in the film industry, she would love to be a part of TV News production, having an early interset in editorial and news.
+            She finds that being on the edge of current events and informing the public of necessary information is a necessity in society, and would love to be a part of that cause.
+            She is a constant writer, and is hoping to develop her skills through editorial, public relations, or in production.
+          </p>
+          <p>
+            And if it felt like her ambition ended there, she hopes to travel around the world, having already gone to Rome, Italy as a study abroad program in Summer 2023.
+            Some of the major european cities she has already traveled to is Barcelona, Nice, Palermo, Venice, and Florence.
+            Wanting to expand her international knowledge, and her growing understanding of various cultures around the world, she knows it will only help deepen her perspective into her advertising experience.
+          </p>
+      </div>
+      <div class="signature" id="signature">
+        <p>masina garonzik</p>
+      </div>
+    </div>
+    <div class="image-column">
+      <div class="image">
+        <img src="Images\Temporary Image.jpg" alt="Placeholder">
+      </div>
+    </div>
+</div>
+
+<div id="portfolio" class="section">
+  <h2>Portfolio</h2>
+</div>
+
+<div id="contact" class="section">
+  <h2>Contact</h2>
+</div>
+
+<div class="circle-container">
+    <div class="circle" id="circle"></div>
+    <nav class="navigation-bar" id="navbar">
+        <ul>
+            <li><a href="#homepage">Home</a></li>
+            <li><a href="#about_me">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const aboutMeSection = document.getElementById("about_me");
+    const signature = document.getElementById("signature");
+
+    // Options for the intersection observer
+    const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5 // Trigger the animation when 50% of the about me section is visible
+    };
+
+    // Callback function for when the about me section intersects with the viewport
+    const callback = function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                signature.classList.add("active"); // Add the active class to trigger the animation
+                observer.unobserve(entry.target); // Stop observing once animation is triggered
+            }
+        });
+    };
+
+    // Create an intersection observer
+    const observer = new IntersectionObserver(callback, options);
+
+    // Start observing the about me section
+    observer.observe(aboutMeSection);
+});
+      var circle = document.getElementById("circle");
+    var navbar = document.getElementById("navbar");
+
+    circle.addEventListener("click", function() {
+        navbar.classList.toggle("active");
+        circle.classList.toggle("active");
+    });
+</script>
+
+</body>
+</html>

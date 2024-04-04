@@ -1,0 +1,285 @@
+body, .section {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+  font-family: 'Cartella';
+  src:url('Fonts/Cartella\ NF\ W00\ Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Tall Films';
+    src:url('Fonts/Tall Film.woff') format('woff');
+  }
+
+@font-face {
+  font-family: 'Jane Austin';
+  src:url('Fonts/JaneAust_1.woff') format('woff');
+}
+
+body {
+    background-color:#252923;
+    margin-bottom: 0;
+}
+
+.section {
+    padding: 15px;
+}
+
+#homepage {
+    display: flex;
+    justify-content: center;
+    color: #F6F4F0;
+    align-items: center;
+    text-align: left;
+    height: 100vh;
+    flex-direction: column;
+    padding-bottom: 70px;
+}
+
+#homepage .header-1-text {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    margin: 0;
+    line-height: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    width: auto;
+    height: 190px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 20px;
+}
+
+.header-container {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    margin: 0;
+    line-height: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.homepage-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+#about_me {
+    display: flex;
+    color: #F6F4F0;
+    height: 100vh;
+    flex-direction: row;
+}
+
+#portfolio {
+    display: flex;
+    justify-content: center;
+    color: #F6F4F0;
+    align-items: center;
+    text-align: left;
+    height: 100vh;
+    flex-direction: column;
+    padding-bottom: 70px;
+}
+
+#contact {
+    display: flex;
+    justify-content: center;
+    color: #F6F4F0;
+    align-items: center;
+    text-align: left;
+    height: 100vh;
+    flex-direction: column;
+    padding-bottom: 70px;
+}
+
+
+.text-column {
+  flex: 1;
+  text-align: left;
+}
+
+.image-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.headertext{
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.image {
+    max-width: 100%;
+   height: auto;
+}
+
+@keyframes textWipeReverse {
+    0% {
+        width: 0%;
+        left: 100%; /* Start position at the right edge */
+    }
+    90% {
+        width: 100%;
+        left: 0; /* End position at the left edge */
+    }
+    100% {
+        width: 100%;
+        left: 0; /* End position at the left edge */
+    }
+}
+
+.signature {
+    color: red;
+    font-family: 'Jane Austin';
+    font-size: 40px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    width: auto; /* Adjust width as needed */
+    text-align: right; /* Align the text within the container */
+    opacity: 0;
+}
+
+.signature.active {
+    animation: textWipeReverse 15s ease-out;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+.circle-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: #F6F4F0;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    opacity: 40%;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background-color 0.3s ease, bottom 1s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+}
+
+.circle.active {
+    background-color: red;
+    bottom: 70px;
+    opacity: 100%;
+}
+
+.circle::after, .circle::before {
+    content: "";
+    width: 5px;
+    height: 22px;
+    position: absolute;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+    background-color: red;
+}
+
+.circle::after {
+    transform: rotate(45deg);
+    top: 12px;
+    left: 16px;
+}
+
+.circle.active::after {
+    transform: rotate(135deg);
+    background-color: white;
+    top: 14px;
+    left: 16px;
+}
+
+.circle::before {
+    transform: rotate(135deg);
+    background-color: red;
+    top: 12px;
+    right: 16px;
+}
+
+.circle.active::before {
+    transform: rotate(45deg);
+    background-color: white;
+    top: 14px;
+    Right: 16px;
+}
+
+.navigation-bar {
+    position: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+    overflow: hidden;
+    background-color: #F6F4F0;
+    padding: 0;
+    margin: 0;
+    transition: height 1s ease;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6)
+}
+
+.navigation-bar.active {
+    height: 60px;
+}
+
+.navigation-bar ul {
+    list-style-type: none;
+    padding: 22px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: bottom;
+}
+
+.navigation-bar ul li {
+    margin: 0 110px;
+}
+
+.navigation-bar ul li a {
+    text-decoration: none;
+    color: #252923;
+    font-family: 'Cartella';
+    letter-spacing: 5px;
+    font-size: 12px;
+    align-items: center;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+}
